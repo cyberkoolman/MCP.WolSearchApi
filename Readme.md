@@ -60,7 +60,7 @@ public static async Task<string> Search(
 ## Features
 
 - **Real-time WOL Search**: Search Jehovah's Witnesses publications and Bible study materials
-- **Configurable Results**: Limit number of results (1-10)
+- **Configurable Results**: Limit number of results (1-10), default to 5
 - **Rich Metadata**: Returns publication info, links, snippets, and occurrence counts
 - **Browser Automation**: Uses Playwright for reliable web scraping
 - **Error Handling**: Graceful error handling with user-friendly messages
@@ -143,6 +143,8 @@ MCP.WolSearchApi/
 <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.6" />
 ```
 
+**Important Note**: This project uses Playwright version 1.40.0 specifically for compatibility with the WOL website. Later versions of Playwright encounter security-related issues when accessing wol.jw.org. Future compatibility improvements with newer Playwright versions are desired.
+
 ## How It Works
 
 1. **Tool Discovery**: GitHub Copilot connects and discovers available tools via MCP protocol
@@ -175,6 +177,7 @@ MCP.WolSearchApi/
 1. **"Unexpected token" errors**: Usually means output is going to stdout instead of stderr
 2. **"Server disconnected"**: Check that the executable path is correct in your config
 3. **Initialization failures**: Ensure Playwright browsers are installed: `playwright install`
+4. **WOL website access issues**: If you encounter security-related errors, ensure you're using Playwright version 1.40.0 as specified in the dependencies. Newer versions may have compatibility issues with the WOL website.
 
 ### Troubleshooting
 
