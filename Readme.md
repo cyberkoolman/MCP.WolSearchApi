@@ -75,14 +75,7 @@ public static async Task<string> Search(
 
 ### Installation
 
-1. **Clone and build the project:**
-   ```bash
-   git clone <repository-url>
-   cd MCP.WolSearchApi
-   dotnet restore
-   ```
-
-2. **Publish the executable:**
+**Publish the executable:**
    ```bash
    dotnet publish -c Release -o bin/publish
    ```
