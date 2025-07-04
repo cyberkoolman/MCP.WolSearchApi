@@ -17,7 +17,7 @@ The **Model Context Protocol (MCP)** is a standardized protocol that allows AI a
 
 Unlike a traditional Web API that exposes HTTP endpoints, an MCP server:
 
-### 1. **Uses MCP-Specific Attributes**
+### 1. **Uses MCP-Specific Attributes** ([Reference](https://learn.microsoft.com/en-us/dotnet/ai/quickstarts/build-mcp-server#defining-our-first-tool))
 ```csharp
 [McpServerToolType]  // Marks a class as containing MCP tools
 public static class WolSearchTool
@@ -27,7 +27,7 @@ public static class WolSearchTool
 }
 ```
 
-### 2. **Follows MCP Hosting Pattern**
+### 2. **Follows MCP Hosting Pattern** ([Reference](https://learn.microsoft.com/en-us/dotnet/ai/quickstarts/build-mcp-server#starting-up-our-server))
 ```csharp
 builder.Services
     .AddMcpServer()                    // Registers MCP server services
@@ -35,7 +35,7 @@ builder.Services
     .WithToolsFromAssembly();          // Auto-discovers tools via reflection
 ```
 
-### 3. **Uses Dependency Injection for Tool Parameters**
+### 3. **Uses Dependency Injection for Tool Parameters** ([Reference](https://github.com/modelcontextprotocol/csharp-sdk#tools))
 ```csharp
 public static async Task<string> Search(
     WolSearchService wolService,       // Injected service
@@ -204,22 +204,9 @@ public class WolConfig
 }
 ```
 
-## Contributing
-
-This project demonstrates the power of MCP for extending AI capabilities with real-time data access. Feel free to:
-
-- Add more search filters (date ranges, publication types)
-- Implement caching for better performance
-- Add support for different languages
-- Create additional tools for WOL navigation
-
 ## Resources
 
 - [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
 - [MCP C# SDK](https://github.com/modelcontextprotocol/csharp-sdk)
 - [Microsoft MCP Blog Post](https://devblogs.microsoft.com/dotnet/build-a-model-context-protocol-mcp-server-in-csharp/)
-- [MCP Server Examples](https://github.com/modelcontextprotocol/servers)
-
-## License
-
-[Add your license information here]
+- [Microsoft MCP Quickstart](https://learn.microsoft.com/en-us/dotnet/ai/quickstarts/build-mcp-server)
